@@ -1,15 +1,22 @@
 class Modifier {
-    constructor(inputs, value, type) {
+    constructor(value, type) {
         this.type = type;
-        this.inputs = inputs;
         this.value = value;
     }
 
-    getOutput() {
+    getOutput(inputs) {
         let output = -Infinity;
         for (let input of this.inputs) {
             output += input;
         }
-        return output;
+        if (type == "*") {
+          return (output * this.value);
+        } else if (type == "/"){
+          return (output / this.value);
+        } else if (type == "+") {
+          return (output + this.value);
+        } else if (type == "-") {
+          return (output - this.value);
+        }
     }
 }
